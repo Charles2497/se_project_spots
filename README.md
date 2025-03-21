@@ -1,5 +1,7 @@
 # Project 3: Spots
 
+An image sharing site
+
 ### Overview
 
 - Intro
@@ -20,5 +22,15 @@ The way you'll do this at work is by exporting images directly from Figma — we
 
 **_Video Link _**
 https://drive.google.com/file/d/1vQh9XK1SG9ub36bZ0CUHyFQJyeal29PQ/view?usp=sharing
+
+## Tech Stack
+
+- HTML
+- CSS
+- Responsive Web Design
+
+## Deployment Link:
+
+https://charles2497.github.io/se_project_spots
 
 Good luck and have fun!
