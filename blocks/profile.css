@@ -63,6 +63,10 @@
 }
 
 .profile__add-btn {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   margin: auto 0 0 auto;
   width: 149px;
@@ -91,7 +95,6 @@
     margin: 0 0 12px;
     width: 80px;
     height: 80px;
-
   }
 
   .profile__name {
