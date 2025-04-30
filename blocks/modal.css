@@ -116,8 +116,6 @@
   }
   .modal__container {
     width: 100%;
-    top: 134px;
-    position: fixed;
     max-width: 300px;
     padding: 12px 12px;
   }
