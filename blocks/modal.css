@@ -54,7 +54,7 @@
   opacity: 1;
 }
 
-.modal__type_preview {
+.modal_type_preview {
   padding: 0 16px;
 }
 
@@ -159,9 +159,7 @@
 }
 
 @media screen and (max-width: 627px) {
-  .modal {
-    padding: 0 12px;
-  }
+
   .modal__container {
     width: 100%;
     max-width: 300px;
@@ -199,5 +197,9 @@
 
   .modal__image {
     max-width: unset;
+  }
+
+  .modal__caption{
+    font-size: 16px;
   }
 }
