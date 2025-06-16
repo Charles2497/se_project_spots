@@ -81,7 +81,7 @@ const cardTemplate = document
 
 // functions
 
-function getCardElement(data,setting) {
+function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -97,14 +97,14 @@ function getCardElement(data,setting) {
 
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
   cardDeleteBtnEl.addEventListener("click", () => {
-    cardElement.remove(setting);
+    cardElement.remove();
   });
 
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
     previewImageEl.alt = data.name;
     previewCaption.textContent = data.name;
-    openModal(previewModal,setting);
+    openModal(previewModal);
   });
 
   return cardElement;
@@ -134,7 +134,7 @@ editProfileBtn.addEventListener("click", function () {
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-  closeModal(editProfileModal, setting);
+  closeModal(editProfileModal);
 });
 
 newPostBtn.addEventListener("click", function () {
@@ -149,7 +149,7 @@ previewModalCloseBtn.addEventListener("click", function () {
   closeModal(previewModal,setting);
 });
 
-function handleEditProfileSubmit(evt,setting) {
+function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
@@ -170,7 +170,7 @@ function closeModalOverlay(evt) {
 // handleEscapeClose function
 
 function handleEscapeClose(evt) {
-  if (evt.key === "Escape"||"esc") {
+  if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".modal_is-opened");
     closeModal(openedPopup);
   }
@@ -182,8 +182,7 @@ document.addEventListener("keydown", handleEscapeClose);
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log(captionInputEl.value);
-  console.log(linkInput.value);
+
 
   const inputValues = {
     name: captionInputEl.value,
@@ -192,9 +191,6 @@ function handleAddCardSubmit(evt) {
 
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
-
- /*  captionInputEl.value = ""; */
-  linkInput.value = "";
   evt.target.reset();
   disableButton(cardSubmitBtn,setting);
   closeModal(newPostModal);

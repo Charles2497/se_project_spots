@@ -58,19 +58,22 @@ const resetValidation = (formEl, inputList, config) => {
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonEl = formEl.querySelector(config.submitButtonSelector);
-  toggleButtonState(inputList, buttonEl, setting);
 
-  inputList.forEach((inputEl, config) => {
-    inputEl.addEventListener("input", function () {
-      checkInputValidity(formEl, inputEl, config,setting);
-      toggleButtonState(inputList, buttonEl, setting);
-      formEl.addEventListener("reset", () => {
-    toggleButtonState(inputList, buttonEl, setting)
+  toggleButtonState(inputList, buttonEl, config);
+
+  formEl.addEventListener("reset", () => {
+    disableButton(buttonEl, config);
   });
-    });
 
+  inputList.forEach((inputEl) => {
+    inputEl.addEventListener("input", () => {
+      checkInputValidity(formEl, inputEl, config);
+      toggleButtonState(inputList, buttonEl, config);
+    });
   });
 };
+
+
 
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
